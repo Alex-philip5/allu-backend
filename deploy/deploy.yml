@@ -2,12 +2,12 @@ version: '3.3'
 services:
   web:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: app
     volumes:
-      - ./templates/react/build/static:/app/static
-      - ./templates/react/build/assets:/app/assets
+      - ../templates/react/build/static:/app/static
+      - ../templates/react/build/assets:/app/assets
     ports:
       - "9090:9090"
   nginx:
@@ -19,8 +19,8 @@ services:
     volumes:
       - ./default.conf:/etc/nginx/conf.d/default.conf
       - ./main.conf:/etc/nginx/nginx.conf
-      - ./templates/react/build/static:/app/static
-      - ./templates/react/build/assets:/app/assets
+      - ../templates/react/build/static:/app/static
+      - ../templates/react/build/assets:/app/assets
       - ./mnt/server.crt:/mnt/server.crt
       - ./mnt/server.key:/mnt/server.key
 
